@@ -2,6 +2,7 @@ package org.jruby.fit;
 
 import fit.FitServer;
 import fit.Fixture;
+import fit.Parse;
 
 import org.jruby.Ruby;
 import org.jruby.RubyInstanceConfig;
@@ -20,21 +21,29 @@ class JRubyFitServer extends FitServer
 	System.exit(fitServer.exitCode());
     }
 
-    public void test() 
+    public JRubyFitServer() 
     {
-	newFixture();
+	super();
+	System.out.println("in construtor");
+	this.fixture = newJRubyFixture();
     }
     
-
     protected Fixture newFixture() 
+    {
+	Fixture javaJrubyFixture = newJRubyFixture();
+	javaJrubyFixture.listener = fixtureListener;
+	return fixture;
+    }
+
+    public Fixture newJRubyFixture() 
     {
 	RubyInstanceConfig config = new RubyInstanceConfig();
 	Ruby runtime = JavaEmbedUtils.initialize(new ArrayList(), config);
 	runtime.evalScriptlet("require 'fit/jruby_fixture'");
-	Object jrubyFixture = runtime.evalScriptlet("JRubyFixture.new");
+	Object jrubyFixture = runtime.evalScriptlet("Fit::JRubyFixture.new");
 	Fixture javaJrubyFixture = (Fixture) JavaEmbedUtils.rubyToJava(runtime, (IRubyObject) jrubyFixture, Fixture.class);
-	javaJrubyFixture.listener = fixtureListener;
-	return fixture;
+	return javaJrubyFixture;
     }
+    
     
 }

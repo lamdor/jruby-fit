@@ -8,7 +8,7 @@ end
 
 desc "Runs all examples"
 Spec::Rake::SpecTask.new do |t|
-  t.spec_files = FileList["src/spec/*_spec.rb"]
+  t.spec_files = FileList["src/spec/**/*_spec.rb"]
 end
 
 task :default => [:clean_compile, :spec]
