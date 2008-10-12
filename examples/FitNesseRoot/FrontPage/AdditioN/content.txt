@@ -3,7 +3,7 @@
 !path fixtures
 !path ../src/main/ruby
 
-!define COMMAND_PATTERN {java -cp %p org.jruby.fit.JRubyFitServer}
+!define COMMAND_PATTERN {java -cp %p org.jruby.fit.JRubyFitServer -v}
 
 |eg.fixtures.Addition|
 |first|second|result?|
