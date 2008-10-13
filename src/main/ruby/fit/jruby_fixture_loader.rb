@@ -3,7 +3,7 @@ module Fit
     class <<self
 
       def new_fixture(fixture_name)
-        parts = fixture_name.split(".")
+        parts = fixture_name.split(/\.|::/)
         require file_name_for_parts(parts)
         constant_for_parts(parts).new
       end
@@ -19,6 +19,7 @@ module Fit
         end
         mod.const_get(fixture_part)
       end
+      
     end
   end
 end
