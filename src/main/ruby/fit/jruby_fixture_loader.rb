@@ -4,7 +4,7 @@ module Fit
 
       def new_fixture(fixture_name)
         parts = fixture_name.split(/\.|::/)
-        require file_name_for_parts(parts)
+        try_to_require file_name_for_parts(parts)
         constant_for_parts(parts).new
       end
 
@@ -18,6 +18,14 @@ module Fit
           constant.const_get(path_element.capitalize)
         end
         mod.const_get(fixture_part)
+      end
+
+      def try_to_require(file)
+        begin
+          require file
+        rescue LoadError => e
+            # do nothing
+        end
       end
       
     end
