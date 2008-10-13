@@ -6,6 +6,7 @@ module Eg
   class AnotherFixture;  end
 end
 
+class ModuleLessFixture; end
 
 describe Fit::JRubyFixtureLoader do
 
@@ -18,11 +19,15 @@ describe Fit::JRubyFixtureLoader do
       end
     end
 
-    it "doesn't blow up if it can't find the fixture" do
+    it "doesn't blow up with a load error if it can't find the fixture file" do
       fixture = Fit::JRubyFixtureLoader.new_fixture("Eg::AnotherFixture")
       fixture.should be_an_instance_of(Eg::AnotherFixture)
     end
 
+    it "should be able to load up a module-less fixture" do
+      fixture = Fit::JRubyFixtureLoader.new_fixture("ModuleLessFixture")
+      fixture.should be_an_instance_of(ModuleLessFixture)
+    end
     
   end
   
