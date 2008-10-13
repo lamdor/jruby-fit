@@ -1,6 +1,7 @@
 require 'java'
 
 require 'util/case_helper'
+require 'fit/jruby_fixture_loader'
 
 module Fit
   include_package "fit"
@@ -23,22 +24,7 @@ module Fit
     end
 
     def try_to_load_ruby_fixture(fixture_name)
-      parts = fixture_name.split(".")
-      require file_name_for_parts(parts)
-      klass = constant_for_parts(parts)
-      return klass.new
-    end
-
-    def file_name_for_parts(parts)
-      parts.map { |part| Util::CaseHelper.snake_case(part) }.join("/")
-    end
-
-    def constant_for_parts(parts)
-      fixture_part = parts.pop
-      mod = parts.inject(Kernel) do |constant, path_element|
-        constant.const_get(path_element.capitalize)
-      end
-      mod.const_get(fixture_part)
+      Fit::JRubyFixtureLoader.new_fixture(fixture_name)
     end
 
     def try_to_load_java_fixture(fixture_name)

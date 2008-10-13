@@ -10,7 +10,8 @@ describe Fit::JRubyFixture do
   
   it "should load a JRubyFixture " do
     parent_fixture = Fit::JRubyFixture.new
+    pending
     fixture = parent_fixture.getLinkedFixtureWithArgs(test_table)
-    fixture.should be_a(Eg::Fixtures::AdditionFixturep)
+    fixture.should be_instance_of(Eg::Fixtures::AdditionFixturep)
   end
 end
