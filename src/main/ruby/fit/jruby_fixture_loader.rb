@@ -1,3 +1,5 @@
+require 'util/case_helper'
+
 module Fit
   class JRubyFixtureLoader
     class <<self
