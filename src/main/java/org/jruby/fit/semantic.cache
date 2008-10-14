@@ -1,0 +1,13 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table "JRubyFitServer.java"
+    :file "JRubyFitServer.java"
+    :pointmax 1012
+    :major-mode 'java-mode
+    :tokens '(("org.jruby.fit" package nil nil nil [1 23]) ("fit.FitServer" include nil nil nil [25 46]) ("fit.Fixture" include nil nil nil [47 66]) ("org.jruby.Ruby" include nil nil nil [68 90]) ("org.jruby.RubyInstanceConfig" include nil nil nil [91 127]) ("org.jruby.javasupport.JavaEmbedUtils" include nil nil nil [128 172]) ("org.jruby.runtime.builtin.IRubyObject" include nil nil nil [173 218]) ("java.util.ArrayList" include nil nil nil [220 247]) ("JRubyFitServer" type "class" (("main" function "void" (("argv" variable "String[]" nil nil nil ((reparse-symbol . formal_parameter_list)) [319 332])) ((typemodifiers "public" "static") (throws "Exception")) nil ((reparse-symbol . class_body_declarations)) [295 470]) ("test" function "void" nil ((typemodifiers "public")) nil ((reparse-symbol . class_body_declarations)) [476 522]) ("newFixture" function "Fixture" nil ((typemodifiers "protected")) nil ((reparse-symbol . class_body_declarations)) [533 1005])) ("FitServer") nil nil nil [249 1012]))
+    )
+   )
+  )

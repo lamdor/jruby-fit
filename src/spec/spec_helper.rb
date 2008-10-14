@@ -11,3 +11,5 @@ unless Object.const_defined?(:BASE_DIR)
     require jar
   end
 end
+
+require 'fit/fit'

@@ -2,10 +2,11 @@ require 'java'
 
 require 'fit/fit'
 require 'fit/fixture_extension'
+require 'fit/column_fixture_extension'
 
 require 'fit/jruby_fixture_loader'
 
-class Fit::JRubyFixture < Fit::Fixture
+class Fit::JRubyFixture < Java::Fit::Fixture
   
   def getLinkedFixtureWithArgs(tables)
     header = tables.at(0,0,0)
