@@ -4,7 +4,7 @@ module Eg
       attr_accessor :first, :second
       
       def result
-        first + second
+        first.to_i + second.to_i
       end
     end
   end
