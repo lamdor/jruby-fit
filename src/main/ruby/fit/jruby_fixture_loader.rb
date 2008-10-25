@@ -1,13 +1,25 @@
 require 'util/case_helper'
 
 module Fit
+  class FixtureNotFoundExecption < ::Exception; end
+  
   class JRubyFixtureLoader
     class <<self
 
       def new_fixture(fixture_name)
+        klass = find_klass(fixture_name) || find_klass(fixture_name + "Fixture")
+        raise Fit::FixtureNotFoundExecption if klass.nil?
+        klass.new
+       end
+
+       def find_klass(fixture_name)
         parts = fixture_name.split(/\.|::/)
         try_to_require file_name_for_parts(parts)
-        constant_for_parts(parts).new
+        begin
+          constant_for_parts(parts)
+        rescue NameError
+          nil
+        end
       end
 
       def file_name_for_parts(parts)
