@@ -6,3 +6,5 @@ module Fit
   end
   
 end
+
+require 'fit/fixture_extension'

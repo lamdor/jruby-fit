@@ -3,18 +3,20 @@ require File.join(File.dirname(__FILE__), *%w[.. spec_helper])
 require 'util/public_field_accessor'
 
 class Java::Eg::UtilPublicFieldAccessorParent
-  include Util::PublicFieldAccessor
-end
+  #include Util::PublicFieldAccessor
 
-class NotAJavaClass
+  def set_fields
+    self.name = "Awesome"
+    self.number = 42
+  end
+  
 end
 
 describe Util::PublicFieldAccessor do
 
   it "should create accessors for the java classes public fields" do
     instance = Java::Eg.UtilPublicFieldAccessorParent.new
-    instance.name = "Awesome"
-    instance.number = 42
+    instance.set_fields
 
     instance.name.should == "Awesome"
     instance.number.should == 42

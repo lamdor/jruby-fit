@@ -5,6 +5,7 @@ require 'fit/binding'
 
 class BindingTestFixture < Fit::Fixture
   attr_accessor :first, :second
+  fit_attr_accessor :third, :type => :numeric
 
   def sum
     first + second
@@ -69,6 +70,14 @@ describe Fit::Binding do
       @binding.doCell(@fixture, cell)
       @fixture.first.should == "5"
     end
+
+    it "should use the fit_attr_accessor to convert it to the correct type" do
+      @binding = Fit::Binding.create(@fixture, "third")
+      cell = Java::Fit::Parse.new("<table><tr><td>5</td></tr></table>").at(0,0,0)
+      @binding.doCell(@fixture, cell)
+      @fixture.third.should == 5
+    end
+    
   end
 
 end

@@ -1,10 +1,11 @@
 module Eg
   module Fixtures
     class AdditionFixture < Fit::ColumnFixture
-      attr_accessor :first, :second
-      
+      fit_attr_accessor :first, :type => :numeric
+      fit_attr_accessor :second, :type => :numeric
+
       def result
-        first.to_i + second.to_i
+        first + second
       end
     end
   end
