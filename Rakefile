@@ -3,7 +3,7 @@ require 'spec/rake/spectask'
 
 desc "Clean and Compiles Java code"
 task :clean_compile do
-  sh "mvn clean compile"
+  sh "mvn clean test-compile"
 end
 
 desc "Runs all examples"
