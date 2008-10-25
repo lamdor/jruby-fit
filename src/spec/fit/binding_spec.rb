@@ -42,9 +42,16 @@ describe Fit::Binding do
       @binding.should be_is_a(Java::Fit::Binding)
     end
 
-    it "should invoke and return the result of calling the method" do
-      cell = Java::Fit::Parse.new("<table><tr><td>sum?</td></tr></table>").at(0,0,0)
-      @binding.doCell(@fixture, cell).should == 4
+    it "should invoke sum? and if it is wrong tell the fixture" do
+      cell = Java::Fit::Parse.new("<table><tr><td>5</td></tr></table>").at(0,0,0)
+      @fixture.should_receive(:wrong).with(cell, "4")
+      @binding.doCell(@fixture, cell)
+    end    
+
+    it "should invoke sum? and if it is right tell the fixture" do
+      cell = Java::Fit::Parse.new("<table><tr><td>4</td></tr></table>").at(0,0,0)
+      @fixture.should_receive(:right).with(cell)
+      @binding.doCell(@fixture, cell)
     end    
   end
 
