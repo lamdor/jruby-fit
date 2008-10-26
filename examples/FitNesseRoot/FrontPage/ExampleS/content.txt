@@ -5,4 +5,4 @@
 !path fixtures
 !path ../src/main/ruby
 
-!define COMMAND_PATTERN {java -cp %p org.jruby.fit.JRubyFitServer -v}
+!define COMMAND_PATTERN {java -cp %p fit.JRubyFitServer -v}

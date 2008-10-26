@@ -1,9 +1,9 @@
 require File.join(File.dirname(__FILE__), "../spec_helper")
 
-import Java::OrgJrubyFit::JRubyFitServer
+#import Java::Fit::JRubyFitServer
 
 # todo: how do test this java class
-describe JRubyFitServer do
+describe Java::Fit::JRubyFitServer do
   it "should be a fitserver"
   describe ".main" do
     it "should call run on our JRubyFitServer and pass in ARGV"

@@ -1,4 +1,4 @@
-package org.jruby.fit;
+package fit;
 
 import fit.FitServer;
 import fit.Fixture;
