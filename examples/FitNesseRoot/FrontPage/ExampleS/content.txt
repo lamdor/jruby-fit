@@ -1,0 +1,8 @@
+!2 !contents
+
+!path ../target/dependency/*.jar
+!path ../target/classes
+!path fixtures
+!path ../src/main/ruby
+
+!define COMMAND_PATTERN {java -cp %p org.jruby.fit.JRubyFitServer -v}

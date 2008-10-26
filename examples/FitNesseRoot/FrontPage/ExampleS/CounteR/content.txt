@@ -1,0 +1,10 @@
+!|Fit::ActionFixture|
+|start|eg.fixtures.CountFixture|
+|check|counter|0|
+|press|count|
+|check|counter|1|
+|press|count|
+|check|counter|2|
+|enter|counter|5|
+|press|count|
+|check|counter|6|

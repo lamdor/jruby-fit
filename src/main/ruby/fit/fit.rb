@@ -8,3 +8,5 @@ module Fit
 end
 
 require 'fit/fixture_extension'
+require 'fit/column_fixture_extension'
+require 'fit/action_fixture_extension'
