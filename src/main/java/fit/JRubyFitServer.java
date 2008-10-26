@@ -24,7 +24,6 @@ class JRubyFitServer extends FitServer
     public JRubyFitServer() 
     {
 	super();
-	System.out.println("in construtor");
 	this.fixture = newJRubyFixture();
     }
     
