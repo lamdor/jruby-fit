@@ -1,4 +1,3 @@
-
 class Fit::ActionFixture < Java::Fit::ActionFixture
 
   def doCells(cells)

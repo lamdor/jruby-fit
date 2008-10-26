@@ -1,3 +1,5 @@
+require 'java'
+
 module Fit
   include_package "fit"
 

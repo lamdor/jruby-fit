@@ -1,7 +1,5 @@
 require File.join(File.dirname(__FILE__), *%w[.. spec_helper])
 
-require 'fit/fit_attr_accessor'
-
 class TypedAttributes
   extend Fit::FitAttrAccessor
 

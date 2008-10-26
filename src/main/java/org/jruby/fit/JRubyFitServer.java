@@ -39,8 +39,8 @@ class JRubyFitServer extends FitServer
     {
 	RubyInstanceConfig config = new RubyInstanceConfig();
 	Ruby runtime = JavaEmbedUtils.initialize(new ArrayList(), config);
-	runtime.evalScriptlet("require 'fit/jruby_fixture'");
-	Object jrubyFixture = runtime.evalScriptlet("Fit::JRubyFixture.new");
+	runtime.evalScriptlet("require 'fit/fit'");
+	Object jrubyFixture = runtime.evalScriptlet("Fit::Fixture.new");
 	Fixture javaJrubyFixture = (Fixture) JavaEmbedUtils.rubyToJava(runtime, (IRubyObject) jrubyFixture, Fixture.class);
 	return javaJrubyFixture;
     }

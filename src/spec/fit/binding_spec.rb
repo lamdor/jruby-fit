@@ -1,8 +1,5 @@
 require File.join(File.dirname(__FILE__), *%w[.. spec_helper])
 
-require 'fit/fit'
-require 'fit/binding'
-
 class BindingTestFixture < Fit::Fixture
   attr_accessor :first, :second
   fit_attr_accessor :third, :type => :numeric

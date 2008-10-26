@@ -1,5 +1,4 @@
 require File.join(File.dirname(__FILE__), *%w[.. spec_helper])
-require "fit/type_converter"
 
 describe Fit::TypeConverter do
   

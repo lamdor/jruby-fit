@@ -1,7 +1,5 @@
 require File.join(File.dirname(__FILE__), *%w[.. spec_helper])
 
-require 'fit/column_fixture_extension'
-
 describe Fit::ColumnFixture do
   before :each do
     @fixture = Fit::ColumnFixture.new

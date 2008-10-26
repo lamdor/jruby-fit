@@ -1,7 +1,5 @@
 require File.join(File.dirname(__FILE__), *%w[.. spec_helper])
 
-require 'fit/jruby_fixture_loader'
-
 module Eg
   class AnotherFixture;  end
 end
